@@ -6,8 +6,30 @@ import Filter from './components/Filters/Filter';
 import Search from './components/Search/Search';
 import './App.css';
 import { Pagination } from './components/Pagination/Pagination';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Episodes from './Pages/Episodes';
+import Location from './Pages/Location';
 
 function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/episodes" element={<Episodes />} />
+          <Route path="/location" element={<Location />} />
+      </Routes>
+    </Router>
+
+
+  );
+};
+
+const Home = () => {
   let [pageNumber, setPageNumber] = useState(1);
   let [search, setSearch] = useState("");
 
@@ -31,11 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="text-center ubuntu my-4">
-          Rick & Morty <span className="text-primary">WiKi</span>
-        </h1>
-      </header>
+      <header className="App-header"></header>
 
       <Search setPageNumber ={setPageNumber} setSearch={setSearch} />
 
