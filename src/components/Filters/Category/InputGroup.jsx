@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputGroup = ({ tatal, name, setId }) => {
+const InputGroup = ({ total, name, setId }) => {
   return (
     <div className="input-group mb-3">
       <select
@@ -8,8 +8,8 @@ const InputGroup = ({ tatal, name, setId }) => {
         className="form-select"
         onChange={e => setId(e.target.value)}
       >
-        <option selected>Choose...</option>
-        {[...Array(tatal).keys()].map((x) => {
+        <option value="1" selected>Choose...</option>
+        {[...Array(total).keys()].map((x) => {
           return (
             <option value={x + 1}>
               {name} - {x + 1}
