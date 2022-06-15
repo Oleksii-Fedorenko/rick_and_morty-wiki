@@ -62,4 +62,4 @@ const Card = ({ results }) => {
   )
 }
 
-export default Card
+export default Card;
