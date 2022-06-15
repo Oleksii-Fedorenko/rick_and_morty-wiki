@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
-const Pagination = ({ setPageNumber, pageNumber, info }) => {
+export const Pagination = ({ setPageNumber, pageNumber, info }) => {
 
   return (
           <ReactPaginate
@@ -12,14 +12,11 @@ const Pagination = ({ setPageNumber, pageNumber, info }) => {
         previousClassName="btn btn-primary fs-5 prev"
         nextClassName="btn btn-primary fs-5 next"
         activeClassName="active"
-        // marginPagesDisplayed={width < 576 ? 1 : 2}
-        // pageRangeDisplayed={width < 576 ? 1 : 2}
         pageCount={info?.pages}
-        // onPageChange={pageChange}
+        onPageChange={(data) =>
+        setPageNumber(data.selected)}
         pageClassName="page-item"
         pageLinkClassName="page-link"
       />
   );
 };
-
-export default Pagination;

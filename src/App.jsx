@@ -2,18 +2,23 @@ import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Card from './components/Card/Card';
-import Filters from './components/Filters/Filters';
-import Pagination from './components/Pagination/Pagination';
+import Filter from './components/Filters/Filter';
 import Search from './components/Search/Search';
 import './App.css';
+import { Pagination } from './components/Pagination/Pagination';
 
 function App() {
   let [pageNumber, setPageNumber] = useState(1);
   let [search, setSearch] = useState("");
+
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("");
+  const [species, setSpecies] = useState("");
+
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
 
@@ -21,9 +26,7 @@ function App() {
       let data = await fetch(api).then(res => res.json());
 
       updateFetchedData(data);
-
     })()
-
   }, [api]);
 
   return (
@@ -38,11 +41,16 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <Filters />
-          </div>
-
-          <div className="col-8">
+          <Filter
+            pageNumber={pageNumber}
+            status={status}
+            setStatus={setStatus}
+            setGender={setGender}
+            setSpecies={setSpecies}
+            setPageNumber={setPageNumber}
+          />
+          
+        <div className="col-8">
             <div className="row">
               <Card results={results} />
             </div>
