@@ -21,9 +21,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<App />} />
-
-        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/:id" element={<CardInfo />} />
 
         <Route path="/episodes" element={<Episodes />} />
