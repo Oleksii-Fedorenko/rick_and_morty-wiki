@@ -9,9 +9,9 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Episodes from "./Pages/Episodes";
 import Location from "./Pages/Location";
-import CardDetails from "./components/Card/CardInfo";
 
 import "./App.css";
+import CardInfo from './components/Card/CardInfo';
 
 function App() {
   return (
@@ -21,14 +21,16 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<CardDetails />} />
+        <Route path="/" element={<App />} />
+
+        <Route index element={<Home />} />
+        <Route path="/:id" element={<CardInfo />} />
 
         <Route path="/episodes" element={<Episodes />} />
-        <Route path="/episodes/:id" element={<CardDetails />} />
+        <Route path="/episodes/:id" element={<CardInfo />} />
 
         <Route path="/location" element={<Location />} />
-        <Route path="/location/:id" element={<CardDetails />} />
+        <Route path="/location/:id" element={<CardInfo />} />
       </Routes>
     </Router>
   );
