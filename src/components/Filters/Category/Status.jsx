@@ -1,5 +1,5 @@
-import React from 'react';
-import FilterButton from '../FilterButton';
+import React from "react";
+import FilterButton from "../FilterButton";
 
 const Status = ({ setStatus, setPageNumber }) => {
   const status = ["Alive", "Dead", "Unknown"];

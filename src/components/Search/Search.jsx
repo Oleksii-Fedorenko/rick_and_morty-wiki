@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Search.module.scss';
+import React from "react";
+import styles from "./Search.module.scss";
 
 const { input, btn } = styles;
 
@@ -10,23 +10,21 @@ const Search = ({ setSearch, setPageNumber }) => {
         placeholder="Search for Charactrs"
         className={input}
         type="text"
-        onChange={
-          (event) => {
-            setPageNumber(1);
-            setSearch(event.target.value)
-          }}
+        onChange={(event) => {
+          setPageNumber(1);
+          setSearch(event.target.value);
+        }}
       />
       <button
         onClick={(event) => {
           event.preventDefault();
         }}
-        className={`${btn} btn btn-primary fs-5`}
+        className={`${btn} btn btn-success fs-5`}
       >
         Search
       </button>
-    
     </form>
-  )
+  );
 }
 
-export default Search
+export default Search;

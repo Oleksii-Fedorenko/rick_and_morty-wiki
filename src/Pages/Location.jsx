@@ -30,7 +30,7 @@ const Location = () => {
       <div className="row mb-4">
         <h1 className="text-center mb-4">
           Location:{" "}
-          <span className="text-primary">{name === "" ? "Unknown" : name}</span>
+          <span className="text-success">{name === "" ? "Unknown" : name}</span>
         </h1>
         <h5 className="text-center">
           Demension: {demension === "" ? "Unknown" : demension}

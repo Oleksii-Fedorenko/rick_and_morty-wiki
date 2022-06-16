@@ -9,6 +9,7 @@ export const Pagination = ({ setPageNumber, pageNumber, info }) => {
 
   useEffect(() => {
     window.addEventListener("resize", updateDimension);
+    
     return () => window.removeEventListener("resize", updateDimension);
   }, []);
 
@@ -26,6 +27,7 @@ export const Pagination = ({ setPageNumber, pageNumber, info }) => {
         }
         `}
       </style>
+
       <ReactPaginate
         className="pagination justify-content-center my-4 gap-4"
         nextLabel="Next"

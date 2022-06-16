@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-import styles from './Card.module.scss';
+import styles from "./Card.module.scss";
 
 
 const { card, img, content, badge } = styles;
@@ -11,8 +11,8 @@ const Card = ({ results, page }) => {
   if (!results) {
     return display = 'No Characters Found 🙃'
   } else {
-    display = results.map(x => {
-      const { id, name, image, location, status } = x;
+    display = results.map(result => {
+      const { id, name, image, location, status } = result;
 
       return (
         <Link 
@@ -34,6 +34,7 @@ const Card = ({ results, page }) => {
                 <div className="fs-5">{location.name}</div>
               </div>
             </div>
+
             {(() => {
               if (status === "Dead") {
                 return (
@@ -56,13 +57,10 @@ const Card = ({ results, page }) => {
               }
             }) ()}
           </div>
-        
         </Link>
       )
     })
-
   }
-
   return (
     <>{display}</>
   )

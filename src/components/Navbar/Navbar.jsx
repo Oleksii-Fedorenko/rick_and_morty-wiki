@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import '../../App.css';
+import "../../App.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <div className="container">
-        <Link to="/" className="fs-3 ubuntu navbar-brand">
-          Rick & Morty <span className="text-primary">WiKi</span>
+        <Link to="/" className="fs-3 text-success ubuntu navbar-brand">
+          Rick & Morty WiKi
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -41,14 +42,16 @@ const Navbar = () => {
             <NavLink
               activeClassName="active"
               to="/"
-              className="nav-link text-primary"
+              className="nav-link text-success"
             >
               Characters
             </NavLink>
-            <NavLink to="/episodes" className="nav-link text-primary">
+
+            <NavLink to="/episodes" className="nav-link text-success">
               Episodes
             </NavLink>
-            <NavLink to="/location" className="nav-link text-primary">
+
+            <NavLink to="/location" className="nav-link text-success">
               Location
             </NavLink>
           </div>

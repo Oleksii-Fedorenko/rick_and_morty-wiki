@@ -1,10 +1,14 @@
-import React from 'react';
-import Gender from './Category/Gender';
-import Species from './Category/Species';
-import Status from './Category/Status';
+import React from "react";
+import Gender from "./Category/Gender";
+import Species from "./Category/Species";
+import Status from "./Category/Status";
 
-
-const Filter = ({ setPageNumber, setStatus, setGender, setSpecies }) => {
+const Filter = ({
+  setPageNumber,
+  setStatus,
+  setGender,
+  setSpecies,
+}) => {
   const clear = () => {
     setPageNumber(1);
     setStatus("");
@@ -19,7 +23,7 @@ const Filter = ({ setPageNumber, setStatus, setGender, setSpecies }) => {
       <div
         style={{ cursor: "pointer" }}
         onClick={clear}
-        className="text-center text-primary text-decoration-underline mb-3"
+        className="text-center text-success text-decoration-underline mb-3"
       >
         Clear Filters
       </div>
@@ -27,10 +31,10 @@ const Filter = ({ setPageNumber, setStatus, setGender, setSpecies }) => {
       <div className="accordion" id="accordionExample">
         <Status setStatus={setStatus} setPageNumber={setPageNumber} />
         <Species setSpecies={setSpecies} setPageNumber={setPageNumber} />
-        <Gender setGender={setGender} setPageNumber={setPageNumber}/>
+        <Gender setGender={setGender} setPageNumber={setPageNumber} />
       </div>
     </div>
-  )
+  );
 }
 
 export default Filter;

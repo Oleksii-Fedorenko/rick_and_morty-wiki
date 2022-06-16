@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const CardDetails = () => {
+const CardInfo = () => {
   const { id } = useParams();
-  let [fetchedData, updateFetchedData] = useState([]);
-  let { name, image, location, origin, gender, species, status, type } =
+  const [fetchedData, updateFetchedData] = useState([]);
+
+  const { name, image, location, origin, gender, species, status, type } =
     fetchedData;
 
   let api = `https://rickandmortyapi.com/api/character/${id}`;
@@ -37,18 +38,22 @@ const CardDetails = () => {
             <span className="fw-bold">Gender: </span>
             {gender}
           </div>
+
           <div className="">
             <span className="fw-bold">Species: </span>
             {species}
           </div>
+
           <div className="">
             <span className="fw-bold">Type: </span>
             {type === "" ? "Unknown" : type}
           </div>
+
           <div className="">
             <span className="fw-bold">Location: </span>
             {location?.name}
           </div>
+          
           <div className="">
             <span className="fw-bold">Origin: </span>
             {origin?.name}
@@ -59,4 +64,4 @@ const CardDetails = () => {
   );
 };
 
-export default CardDetails;
+export default CardInfo;

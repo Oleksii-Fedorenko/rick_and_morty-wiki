@@ -1,5 +1,5 @@
-import React from 'react'
-import FilterButton from '../FilterButton';
+import React from "react";
+import FilterButton from "../FilterButton";
 
 const Species = ({ setPageNumber, setSpecies }) => {
   const species = [

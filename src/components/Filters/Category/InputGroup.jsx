@@ -6,13 +6,13 @@ const InputGroup = ({ total, name, setId }) => {
       <select
         id={name}
         className="form-select"
-        onChange={e => setId(e.target.value)}
+        onChange={event => setId(event.target.value)}
       >
         <option value="1" selected>Choose...</option>
-        {[...Array(total).keys()].map((x) => {
+        {[...Array(total).keys()].map((episode) => {
           return (
-            <option value={x + 1}>
-              {name} - {x + 1}
+            <option value={episode + 1}>
+              {name} - {episode + 1}
             </option>
           );
         })}

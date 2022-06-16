@@ -4,13 +4,14 @@ import "bootstrap/dist/js/bootstrap";
 import Card from "./components/Card/Card";
 import Filter from "./components/Filters/Filter";
 import Search from "./components/Search/Search";
-import "./App.css";
 import { Pagination } from "./components/Pagination/Pagination";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Episodes from "./Pages/Episodes";
 import Location from "./Pages/Location";
-import CardDetails from "./components/Card/CardDetails";
+import CardDetails from "./components/Card/CardInfo";
+
+import "./App.css";
 
 function App() {
   return (
@@ -34,11 +35,11 @@ function App() {
 }
 
 const Home = () => {
-  let [pageNumber, setPageNumber] = useState(1);
-  let [search, setSearch] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+  const [search, setSearch] = useState("");
 
-  let [fetchedData, updateFetchedData] = useState([]);
-  let { info, results } = fetchedData;
+  const [fetchedData, updateFetchedData] = useState([]);
+  const { info, results } = fetchedData;
 
   const [status, setStatus] = useState("");
   const [gender, setGender] = useState("");
