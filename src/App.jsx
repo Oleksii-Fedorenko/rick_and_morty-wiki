@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-import Card from './components/Card/Card';
-import Filter from './components/Filters/Filter';
-import Search from './components/Search/Search';
-import './App.css';
-import { Pagination } from './components/Pagination/Pagination';
-import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Episodes from './Pages/Episodes';
-import Location from './Pages/Location';
+import Card from "./components/Card/Card";
+import Filter from "./components/Filters/Filter";
+import Search from "./components/Search/Search";
+import "./App.css";
+import { Pagination } from "./components/Pagination/Pagination";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Episodes from "./Pages/Episodes";
+import Location from "./Pages/Location";
+import CardDetails from "./components/Card/CardDetails";
 
 function App() {
   return (
@@ -19,15 +20,18 @@ function App() {
       </div>
 
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/episodes" element={<Episodes />} />
-          <Route path="/location" element={<Location />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<CardDetails />} />
+
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/episodes/:id" element={<CardDetails />} />
+
+        <Route path="/location" element={<Location />} />
+        <Route path="/location/:id" element={<CardDetails />} />
       </Routes>
     </Router>
-
-
   );
-};
+}
 
 const Home = () => {
   let [pageNumber, setPageNumber] = useState(1);
@@ -43,19 +47,17 @@ const Home = () => {
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
-
     (async function () {
-      let data = await fetch(api).then(res => res.json());
+      let data = await fetch(api).then((res) => res.json());
 
       updateFetchedData(data);
-    })()
+    })();
   }, [api]);
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-
-      <Search setPageNumber ={setPageNumber} setSearch={setSearch} />
+      <h1 className="text-center mb-4">Characters</h1>
+      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 
       <div className="container">
         <div className="row">
@@ -67,10 +69,10 @@ const Home = () => {
             setSpecies={setSpecies}
             setPageNumber={setPageNumber}
           />
-          
-        <div className="col-8">
+
+          <div className="col-8">
             <div className="row">
-              <Card results={results} />
+              <Card page="/" results={results} />
             </div>
           </div>
         </div>
@@ -83,6 +85,6 @@ const Home = () => {
       />
     </div>
   );
-}
+};
 
 export default App;

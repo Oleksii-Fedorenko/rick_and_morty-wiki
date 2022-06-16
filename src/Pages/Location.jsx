@@ -33,12 +33,10 @@ const Location = () => {
           <span className="text-primary">{name === "" ? "Unknown" : name}</span>
         </h1>
         <h5 className="text-center">
-          Demension:{" "} {demension === "" ? "Unknown" : demension}
+          Demension: {demension === "" ? "Unknown" : demension}
         </h5>
 
-        <h6 className="text-center">
-          Type:{" "} {type === "" ? "Unknown" : type}
-        </h6>
+        <h6 className="text-center">Type: {type === "" ? "Unknown" : type}</h6>
       </div>
       <div className="row">
         <div className="col-3">
@@ -47,7 +45,7 @@ const Location = () => {
         </div>
         <div className="col-8">
           <div className="row">
-            <Card results={results} />
+            <Card page="/location/"  results={results} />
           </div>
         </div>
       </div>

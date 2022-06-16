@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import styles from './Card.module.scss';
 
 
 const { card, img, content, badge } = styles;
 
-const Card = ({ results }) => {
+const Card = ({ results, page }) => {
   let display;
 
   if (!results) {
@@ -14,7 +15,12 @@ const Card = ({ results }) => {
       const { id, name, image, location, status } = x;
 
       return (
-        <div key={id} className="col-4 mb-4 position-relative">
+        <Link 
+          style={{textDecoration: "none"}}
+          to={`${page}${id}`}
+          key={id}
+          className="col-4 mb-4 position-relative text-dark"
+        >
           <div className={card}>
             <img
               src={image}
@@ -51,7 +57,7 @@ const Card = ({ results }) => {
             }) ()}
           </div>
         
-        </div>
+        </Link>
       )
     })
 
