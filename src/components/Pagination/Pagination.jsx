@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
-export const Pagination = ({ setPageNumber, pageNumber, info }) => {
+const Pagination = ({ setPageNumber, pageNumber, info }) => {
   const [width, setWitdth] = useState(window.innerWidth);
+
+  const pageChange = (data) => {
+    setPageNumber(data.selected + 1);
+  };
+
   const updateDimension = () => {
     setWitdth(window.innerWidth);
   };
@@ -18,7 +23,8 @@ export const Pagination = ({ setPageNumber, pageNumber, info }) => {
       <style>
         {`
         @media (max-width: 768px) {
-          .next, .prev {
+          .next,
+          .prev {
             display: none;
           }
           .pagination {
@@ -39,10 +45,12 @@ export const Pagination = ({ setPageNumber, pageNumber, info }) => {
         marginPagesDisplayed={width < 576 ? 1 : 2}
         pageRangeDisplayed={width < 576 ? 1 : 2}
         pageCount={info?.pages}
-        onPageChange={(data) => setPageNumber(data.selected)}
+        onPageChange={pageChange}
         pageClassName="page-item"
         pageLinkClassName="page-link"
       />
     </>
   );
 };
+
+export default Pagination;

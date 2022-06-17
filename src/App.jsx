@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+import React, { useState, useEffect } from "react";
+
 import Card from "./components/Card/Card";
 import Filter from "./components/Filters/Filter";
 import Search from "./components/Search/Search";
-import { Pagination } from "./components/Pagination/Pagination";
+import Pagination from "./components/Pagination/Pagination";
 import Navbar from "./components/Navbar/Navbar";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Episodes from "./Pages/Episodes";
 import Location from "./Pages/Location";
+import Episodes from "./Pages/Episodes";
+import CardInfo from './components/Card/CardInfo';
 
 import "./App.css";
-import CardInfo from './components/Card/CardInfo';
 
 function App() {
   return (
