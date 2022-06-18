@@ -2,7 +2,7 @@
   "name": "rick_and_morty-wiki",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://oleksii-fedorenko.github.io/rick_and_morty-wiki/episodes",
+  "homepage": "https://oleksii-fedorenko.github.io/rick_and_morty-wiki",
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@testing-library/jest-dom": "^5.16.4",
