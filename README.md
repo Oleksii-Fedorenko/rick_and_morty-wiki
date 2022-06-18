@@ -1,5 +1,5 @@
 # Rick & Morty - WiKi
-[DEMO LINK](http://oleksii-fedorenko.github.io/rick_and_morty-wiki/)
+[DEMO LINK](http://oleksii-fedorenko.github.io/rick_and_morty-wiki/episodes)
 
 # Task Description
 Requirements: 
