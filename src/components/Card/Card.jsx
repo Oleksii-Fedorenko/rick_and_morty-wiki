@@ -7,6 +7,8 @@ const { card, img, content, badge } = styles;
 const Card = ({ results, page }) => {
   let display;
 
+  console.log(results);
+
   if (results) {
     display = results.map((result) => {
       const { id, name, image, location, status } = result;
@@ -14,12 +16,12 @@ const Card = ({ results, page }) => {
       return (
         <Link
           style={{ textDecoration: "none" }}
-          to={`${page}${id}`}
+          to={`/card${page}${id}`}
           key={id}
           className="col-lg-4 col-md-6 col-12 mb-4 position-relative text-dark"
         >
           <div className={`${card} d-flex flex-column`}>
-            <img src={image} alt="" className={`${img} img-fluid`} />
+            <img src={image} alt="Person card" className={`${img} img-fluid`} />
             <div className={`${content}`}>
               <div className="fs-4 fw-bold mb-4">{name}</div>
               <div>

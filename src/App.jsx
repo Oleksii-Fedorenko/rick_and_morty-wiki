@@ -21,13 +21,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<CardInfo />} />
+        <Route path="/card/:id" element={<CardInfo />} />
 
         <Route path="/episodes" element={<Episodes />} />
-        <Route path="/episodes/:id" element={<CardInfo />} />
+        <Route path="/card/episodes/:id" element={<CardInfo />} />
 
         <Route path="/location" element={<Location />} />
-        <Route path="/location/:id" element={<CardInfo />} />
+        <Route path="/card/location/:id" element={<CardInfo />} />
 
         <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>

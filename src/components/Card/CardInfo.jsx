@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import BackButton from "../BackButton/BackButton";
 
 const CardInfo = () => {
   const { id } = useParams();
   const [fetchedData, updateFetchedData] = useState([]);
-  const navigation = useNavigate();
+  const [isError, setIsError] = useState(false);
 
   const { name, image, location, origin, gender, species, status, type } =
     fetchedData;
@@ -14,10 +15,30 @@ const CardInfo = () => {
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
+      if (data.error) {
+        setIsError(true);
+        return;
+      }
 
       updateFetchedData(data);
+      setIsError(false);
     })();
   }, [api]);
+
+  if (isError) {
+    return (
+      <div className="d-flex justify-content-center flex-column align-items-center">
+        <h1>Wrong person</h1>
+        
+        <div style={{
+          width: '100%',
+          maxWidth: '78px',
+        }}>
+          <BackButton />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container d-flex justify-content-center">
@@ -59,14 +80,10 @@ const CardInfo = () => {
             <span className="fw-bold">Origin: </span>
             {origin?.name}
           </div>
-          <button
-            className="btn-danger btn w-100 mt-3"
-            onClick={() => {
-              navigation(-1);
-            }}
-          >
-            Back
-          </button>
+
+          <div className="d-flex justify-content-center alien-items-center">
+            <BackButton />
+          </div>
         </div>
       </div>
     </div>
