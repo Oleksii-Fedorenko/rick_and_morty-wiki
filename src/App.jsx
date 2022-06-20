@@ -4,7 +4,7 @@ import React from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Location from "./Pages/Location";
 import Episodes from "./Pages/Episodes";
 import CardInfo from './components/Card/CardInfo';
@@ -28,6 +28,8 @@ function App() {
 
         <Route path="/location" element={<Location />} />
         <Route path="/location/:id" element={<CardInfo />} />
+
+        <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
     </Router>
   );
