@@ -22,3 +22,4 @@ Good to have:
 3. Show the list of liked characters. 
 4. Make it possible to add a character's photo. 
 You can store data in localstorage. 
+5. For style use bootstrap.
