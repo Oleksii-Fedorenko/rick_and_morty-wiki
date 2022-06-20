@@ -21,7 +21,7 @@ const FilterButton = ({
         }
         `}
       </style>
-      
+
       <div className="form-check">
         <input
           className="form-check-input x"
@@ -33,10 +33,7 @@ const FilterButton = ({
             task(items);
           }}
         />
-        <label
-          class="btn btn-outline-success"
-          for={`${name}-${index}`}
-        >
+        <label className="btn btn-outline-success" htmlFor={`${name}-${index}`}>
           {items}
         </label>
       </div>

@@ -10,8 +10,7 @@ const Filter = ({
   setSpecies,
 }) => {
   const clear = () => {
-    setPageNumber(1);
-    setStatus("");
+    setPageNumber("");
     setStatus("");
     setGender("");
     window.location.reload(false);

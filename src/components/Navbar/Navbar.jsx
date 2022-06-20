@@ -31,8 +31,8 @@ const Navbar = () => {
             `}
           </style>
 
-          <i class="fas fa-bars open"></i>
-          <i class="fas fa-times close"></i>
+          <i className="fas fa-bars open"></i>
+          <i className="fas fa-times close"></i>
         </button>
         <div
           className="collapse navbar-collapse justify-content-end"
@@ -40,18 +40,35 @@ const Navbar = () => {
         >
           <div className="navbar-nav">
             <NavLink
-              activeClassName="active"
               to="/"
-              className="nav-link text-success"
+              className={({ isActive }) =>
+                isActive
+                  ? "active nav-link text-success"
+                  : "nav-link text-success"
+              }
             >
               Characters
             </NavLink>
 
-            <NavLink to="/episodes" className="nav-link text-success">
+            <NavLink
+              to="/episodes"
+              className={({ isActive }) =>
+                isActive
+                  ? "active nav-link text-success"
+                  : "nav-link text-success"
+              }
+            >
               Episodes
             </NavLink>
 
-            <NavLink to="/location" className="nav-link text-success">
+            <NavLink
+              to="/location"
+              className={({ isActive }) =>
+                isActive
+                  ? "active nav-link text-success"
+                  : "nav-link text-success"
+              }
+            >
               Location
             </NavLink>
           </div>
